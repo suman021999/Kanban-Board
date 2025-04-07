@@ -1,8 +1,8 @@
 export type Status= 'todo' | 'in-progress' | 'done'
 export type Priority= 'low' | 'mediam' | 'high'
 export type Task = {
-    title:String,
-    id:String,
+    title: string,
+    id:string,
     status:Status ,
     priority:Priority,
     points?:number
@@ -26,7 +26,7 @@ export type Task = {
       id:"BUS-2",
       status:'done',
       priority:'high',
-     points:6,
+     points:60,
     },
     {
         title:"llo",
@@ -35,5 +35,11 @@ export type Task = {
         priority:'mediam',
        points:9,
       },
-      
+      {
+        title:"llo",
+        id:"BUS-4",
+        status:'in-progress',
+        priority:'mediam',
+       points:9,
+      },
       ]
