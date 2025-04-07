@@ -1,20 +1,28 @@
-
+import Card from "../components/Card";
+import { tasks,statuses } from "../utils/Taskdata";
 
 const MainPage = () => {
-  const title="Hello"
-  const id="BUS-1"
-  const points="4"
+  const columns=statuses.map((status)=>{
+    const taskInColumn=tasks.filter((task)=>task.status===status)
+    return{
+      title:status,
+      tasks:taskInColumn
+    }
+  })
+  
   return (
     <>
-      <div className=" border border-gray-300 rounded-lg px-2 m-2 bg-gray-50">
-          <h2 className="text-base font-semibold py-2">{title}</h2>
-          <div className="flex gap-4 justify-between py-2 text-gray-700">
-            <p>{id}</p>
-            <p>{points}</p>
-           </div>
-      </div>
-    </> 
-  )
-}
+      <div className="flex justify-center  divide-x divide-gray-300 ">
+        {columns.map((column,i)=>(
+          <div key={i}>
+            <h1 className="text-3xl text-gray-500 font-bold p-2 capitalize">{column.title}</h1>
+            {column.tasks.map((task,i)=> <Card key={i} task={task}/>)}
+          </div>
+        ))}
 
-export default MainPage
+      </div>
+    </>
+  );
+};
+
+export default MainPage;
